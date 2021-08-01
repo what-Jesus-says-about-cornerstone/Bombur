@@ -17,7 +17,7 @@
  :aliases
  {:main
   {:jvm-opts ["-Dclojure.core.async.pool-size=1" "-Dclojure.compiler.direct-linking=true"]
-   :main-opts ["-m" "fiber.main"]}
+   :main-opts ["-m" "kafka-scout.main"]}
 
   :repl
   {:extra-deps {deps-repl/deps-repl {:git/url "https://github.com/empire-strikes-back/deps-repl"
@@ -25,7 +25,7 @@
                 nrepl/nrepl {:mvn/version "0.8.3"}
                 cider/cider-nrepl {:mvn/version "0.25.5"}}
    :main-opts ["-m" "deps-repl.main"
-               "--init-ns" "fiber.main"
+               "--init-ns" "kafka-scout.main"
                "--port" "7788"
                "--bind" "0.0.0.0"
                "--middleware" "cider.nrepl/cider-middleware"]}}}
