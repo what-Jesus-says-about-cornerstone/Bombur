@@ -1,4 +1,4 @@
-(ns lab-kafka.main
+(ns kafka-scout.main
   (:require
    [clojure.core.async :as a :refer [<! >! <!! timeout chan alt! go
                                      >!! <!! alt!! alts! alts!! take! put! mult tap untap

@@ -1,4 +1,4 @@
-(ns lab-kafka.streams
+(ns kafka-scout.streams
   (:require
    [clojure.repl :refer [doc]]
    [clojure.core.async :as a :refer [<! >! <!! timeout chan alt! go

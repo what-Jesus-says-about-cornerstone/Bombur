@@ -1,4 +1,4 @@
-(ns lab-kafka.crux_tutorial
+(ns kafka-scout.crux_tutorial
   (:require
    [clojure.repl :refer [doc]]
    [crux.api :as crux]
