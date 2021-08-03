@@ -3,7 +3,7 @@
 repl(){
   clj \
     -X:repl deps-repl.core/process \
-    :main-ns kafka-scout.main \
+    :main-ns deathstar.main \
     :port 7788 \
     :host '"0.0.0.0"' \
     :repl? true \
