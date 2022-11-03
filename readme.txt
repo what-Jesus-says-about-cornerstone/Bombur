@@ -1,1 +1,1 @@
-i am kafka-scout program - i explore apache kafka
+I'm always last and I don't like it - it's somebody else's turn today

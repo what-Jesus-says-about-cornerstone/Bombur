@@ -1,4 +1,4 @@
-(ns kafka-scout.crux_tutorial
+(ns Bombur.crux_tutorial
   (:require
    [clojure.repl :refer [doc]]
    [crux.api :as crux]

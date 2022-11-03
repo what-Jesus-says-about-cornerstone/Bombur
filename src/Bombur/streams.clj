@@ -1,4 +1,4 @@
-(ns kafka-scout.streams
+(ns Bombur.streams
   (:require
    [clojure.repl :refer [doc]]
    [clojure.core.async :as a :refer [<! >! <!! timeout chan alt! go
@@ -12,12 +12,12 @@
    [clojure.test.check.properties :as prop]
 
    #_[starnet.alpha.core.game.state :refer [next-state]]
-   [starnet.alpha.core.spec])
+   #_[starnet.alpha.core.spec])
   (:import
-   kafka.serdes_transit.TransitJsonSerializer
-   kafka.serdes_transit.TransitJsonDeserializer
-   kafka.serdes_transit.TransitJsonSerde
-   kafka.serdes_transit.NippySerde
+   #_kafka.serdes_transit.TransitJsonSerializer
+   #_kafka.serdes_transit.TransitJsonDeserializer
+   #_kafka.serdes_transit.TransitJsonSerde
+   #_kafka.serdes_transit.NippySerde
 
    org.apache.kafka.common.serialization.Serdes
    org.apache.kafka.streams.KafkaStreams
@@ -329,8 +329,8 @@
                                  (apply [_ k v]
                                    (let [k (:u/uuid v)]
                                      k))))
-                   (.to "alpha.topic.user-changelog"
-                        (Produced/with (TransitJsonSerde.) (TransitJsonSerde.))))]
+                   #_(.to "alpha.topic.user-changelog"
+                          (Produced/with (TransitJsonSerde.) (TransitJsonSerde.))))]
          (.build builder (doto (Properties.)
                            (.putAll props))))))))
 
@@ -347,10 +347,10 @@
      (fn []
        (let [builder (StreamsBuilder.)
              gt1 (-> builder
-                     (.globalTable "alpha.topic.user-changelog"
-                                   (-> (Materialized/as "alpha.gktable.user-changelog")
-                                       (.withKeySerde (TransitJsonSerde.))
-                                       (.withValueSerde (TransitJsonSerde.)))))
+                     #_(.globalTable "alpha.topic.user-changelog"
+                                     (-> (Materialized/as "alpha.gktable.user-changelog")
+                                         (.withKeySerde (TransitJsonSerde.))
+                                         (.withValueSerde (TransitJsonSerde.)))))
 
              s1 (-> builder
                     (.stream "alpha.topic.game"))
@@ -372,8 +372,8 @@
              _ (-> builder
                    (.globalTable "alpha.topic.game-join-example"
                                  (-> (Materialized/as "alpha.gktable.game-join-example")
-                                     (.withKeySerde (TransitJsonSerde.))
-                                     (.withValueSerde (TransitJsonSerde.)))))]
+                                     #_(.withKeySerde (TransitJsonSerde.))
+                                     #_(.withValueSerde (TransitJsonSerde.)))))]
          (.build builder (doto (Properties.)
                            (.putAll props))))))))
 
@@ -439,8 +439,8 @@
                                            (println (ex-data e))
                                            ag))))
                                    (-> (Materialized/as "alpha.game.streams.store")
-                                       (.withKeySerde (TransitJsonSerde.))
-                                       (.withValueSerde (TransitJsonSerde.))))
+                                       #_(.withKeySerde (TransitJsonSerde.))
+                                       #_(.withValueSerde (TransitJsonSerde.))))
                        (.toStream)
                        (.to "alpha.game.changes"))]
        (.build builder)))))
